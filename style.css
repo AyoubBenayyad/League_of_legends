@@ -1,0 +1,978 @@
+/*---------- reset ---------------- */ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body {
+    font-size:x-large;
+    font-family: monospace;  
+    background-color: var(--HeaderBgColor);
+}
+img{
+    display: block;
+}
+/* variables */ 
+:root {
+    --HeaderBgColor: hsl(225, 6%, 13%);
+    --RiotGamesColor:hsl(359, 63%, 52%);
+}
+
+/* header */ 
+header {
+    background-color: var(--HeaderBgColor);
+    width: 100vw;
+
+}
+.header-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+.Riot-logo{
+    min-width:120px;
+    max-width: 7.5%;
+    
+    height:auto;
+}
+.Riot-logo img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.login{
+    margin: 5px;
+    padding: 1rem;
+    display: grid;
+    place-content: center;
+    text-decoration: none;
+    display: none;
+    
+}
+.login button {
+    width: 6rem;
+    height: 2rem;
+    border: 2px solid var(--HeaderBgColor);
+    border-radius: 6px;
+    background-color: var(--RiotGamesColor);
+    color: white;
+    font-family: sans-serif;
+    font-weight: 300;
+    
+}
+.login button:hover,.login button:focus {
+    background-color: hsl(359, 74%, 55%);
+}
+.Menu-button{
+    margin: 1rem;
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.Menu-icon,.Menu-icon::before,.Menu-icon::after{
+    background-color: whitesmoke;
+    width: 40px;
+    height: 5px;
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.5s;
+}
+.Menu-icon::before,
+.Menu-icon::after{
+    content: "";
+}
+.Menu-icon::before{
+    transform: translate(-20px,-12px);
+}
+.Menu-icon::after{
+    transform: translate(-20px,12px);
+}
+:is(header:hover, header:focus-within) .Menu-icon{
+    background-color: transparent;
+}
+:is(header:hover, header:focus-within) .Menu-icon::after{
+    transform: translateX(-20px) rotate(-45deg);
+}
+:is(header:hover, header:focus-within) .Menu-icon::before{
+    transform: translateX(-20px) rotate(45deg);
+}
+:is(header:hover, header:focus-within) nav{
+    display: block;
+}
+nav {
+    display: none;
+    transform-origin: top center;
+    animation: showmenu 0.5s ease forwards;
+}
+@keyframes showmenu {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.main-nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.main-nav a {
+    display: block;
+    width: 80%;
+    text-align: center;
+    margin: auto;  
+}
+.main-nav li {
+    padding: 1rem;
+    border-top: 2px solid whitesmoke;
+}
+.main-nav a:any-link{
+    color: whitesmoke;
+    text-decoration: none;
+}
+.main-nav a:hover, nav a:focus {
+    color:hsl(359, 77%, 59%) ;
+    transform: scale(1.2);
+    transition: all 0.3s;
+}
+/* main */ 
+main {
+    min-height: 600px;
+    background-color: #07121A;
+    padding-bottom: 1rem;
+    /*background-image: radial-gradient(#212F45,#312244,#4D194D);*/
+}
+.video-wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+    padding-top: 1rem;
+}
+.league-card{
+    width:60%;
+    border-radius: 6px ;
+    background-color: transparent;
+    position: relative;
+}
+#myVideo {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+.login-container{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    position: absolute;
+    gap: 1rem;
+    top: 30%;
+    left: 25%;
+    width:50%;
+}
+
+.login-container img {
+    width: 100%;
+    height: auto; 
+}
+.login-container button {
+    min-width: 80px;
+    width: 10vw;
+    height: 3em;
+    background-color: var(--RiotGamesColor);
+    border: 1px solid black ;
+    border-radius: 5px 0 3px 0px;
+    font-family: monospace;
+    font-size: large;
+    color: whitesmoke;
+}
+.league-card button:hover {
+    background-color: hsl(359, 84%, 57%);
+}
+.description-wrapper{
+    width: 100%;
+    color: whitesmoke;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 300px;
+}
+.description-wrapper .what-is-league {
+    background-color: transparent;
+    grid-column: 2/3;
+    
+    align-self: center;
+}
+:is(.description-wrapper:hover) .what-is-league{
+    animation: bigger 1s ease forwards ;
+}
+.what-is-league h1{
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 1rem;
+}
+.what-is-league p{
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: medium;
+    width: 40em;
+    margin: auto;
+
+}
+.description-wrapper .h4-cont {
+    background-color: transparent;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: grid;
+    align-items: center;
+    white-space: nowrap;
+    
+}
+.h4-cont h4{
+    transform: rotate(-90deg);
+    font-size: x-small;
+    margin-left: 6rem; 
+    position: relative;
+}
+.h4-cont::after{
+    background-color: whitesmoke;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.5s;
+    transform: translate(150px,-80px) rotate(-90deg);
+    
+}
+.h4-cont::after{
+    content: "";
+}
+.how-to-play{
+    background-color: #0d2a3f;
+    min-height: 800px;
+    background-image: url(img/base-2x-1f52ee2c1820c7cfe9031a6f7524c7b5.png);
+    background-size:contain; /* Resize the background image to cover the entire container */
+    background-position-x: 150%;
+    background-repeat: no-repeat; 
+}
+.goal{
+    width: 50vw;
+    display: grid;
+    grid-template-columns:200px 1fr ;
+    color: whitesmoke;
+    padding-top:4rem;
+    
+}
+.goal .p {
+    background-color:transparent;
+    grid-column: 2/3;
+    display: grid;
+    place-content: center;
+    width: 500px;
+    transition: all 0.5s;
+}
+.p h1{
+    margin-bottom:1rem;
+    text-align: center;
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.p p{
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: medium;
+}
+:is(.goal:hover) .p{
+    animation: bigger 1s ease forwards ;
+}
+@keyframes bigger {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+.goal .h {
+    background-color: transparent;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: grid;
+    place-content:center;
+    
+    justify-self: start;
+    transform: rotate(-90deg) translate(-5px,60px);
+}
+.h::after{
+    background-color: whitesmoke;
+    width: 15px;
+    height: 2px;
+    content: "";
+    transform: translate(30px,-8px);
+}
+.h h4{
+    font-size: small;
+}
+.goal .h2 {
+    background-color: transparent;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    display: grid;
+    place-content:center;
+    
+    justify-self: start;
+    transform: rotate(-90deg) translate(-5px,60px);
+}
+.h2::after{
+    background-color: whitesmoke;
+    width: 12px;
+    height: 2px;
+    content: "";
+    transform: translate(70px,-8px);
+}
+.h2 h4{
+    font-size: small;
+}
+/* --------------------league card------------------ */ 
+.champions h1{
+    color: hsl(38, 36%, 56%);
+    font-style: italic;
+    text-align: center; 
+    text-transform: capitalize;
+    margin-bottom: 1vh; ;
+}
+.champs{
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+}
+.champ-card{
+    background-color: transparent;
+    width: 15vw;
+    margin: 0.5rem auto;
+    
+}
+:is(.champ-card:hover).champ-card{
+    animation: card 1s ease forwards ;
+}
+
+@keyframes card {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.05);
+    }
+    100%{
+        transform: scale(1.0);
+    }
+}
+
+.champ-img{
+    width: 100%;
+}
+.champ-img img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.champ-other{
+    background: linear-gradient(black, rgb(31, 31, 31));
+    display: flex;
+    flex-flow: column nowrap;
+    color: hsl(38, 45%, 51%);
+    gap: 1rem;  
+}
+.champ-name{
+    display: flex;
+    justify-content: center;
+    transform: translateX(-10px);
+}
+.champ-name h3{
+    text-transform: capitalize; 
+}
+.champ-infos{
+    display: flex;
+    justify-content: space-between;
+
+}
+.role{
+    order: 1;
+    width:40%;
+    margin-right: 1.3rem;  
+}
+.role img{
+    width: 100%;
+    height: auto;
+}
+.riot-points{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+.riot-points img{
+    width: 15%;
+    height: auto;
+    order: 1;
+}
+/*---------------------------- footer ------------------------*/
+footer{
+    background-color: rgb(32, 31, 31);
+}
+.footer-container{
+    min-height: 200px;
+    background-color:  rgb(26, 24, 24);
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-evenly;
+}
+.riot-infos{
+    width: 50%;
+}
+.footer-logo{
+    width: 20%;
+    height: auto;
+}
+.footer-logo img{
+    width: 100%;
+    height: auto;
+}
+.riot-descript{
+    width: 70%;
+}
+.riot-descript,.phone,.mail{
+    font-size: small;
+    margin-bottom: 1rem;
+}
+.foot-bar{
+    display: grid;
+    place-content: center;
+    width: 27%  
+}
+.foot-ul{
+    list-style-type: circle;
+}
+.foot-ul a{
+    color: whitesmoke;
+    text-decoration: none;
+}
+.foot-ul li{
+    margin-bottom: 0.5rem;
+}
+.foot-ul a:hover,.foot-ul a:focus{
+    text-decoration:underline;
+}
+.line{
+    background-color: rgba(193, 191, 191, 0.461);
+    width: 60%;
+    height: 1px;
+    content: "";
+    display: block;
+    margin: auto;
+    
+}
+.social-media{
+    min-height: 60px;
+    background-color: rgb(26, 24, 24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+    padding-top: 0.6rem;
+}
+
+.logos{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.follow-us{
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.follow-us::after{
+    background-color: whitesmoke;
+    width: 30px;
+    height: 1px;
+    content: "";
+    margin-left: 0.5rem;
+    transform: rotate(90deg);
+}
+.logos-container{
+    background-color: rgb(42, 41, 41);
+    display: inline-block;
+    border-radius: 9px;
+    padding: 3px;
+}
+.copyright{
+    color: rgba(195, 190, 190, 0.671);
+    background-color:rgb(32, 31, 31);
+    font-size: small;
+    padding: 1rem;
+    width: 50%;
+}
+.back-to-top img{
+    display: block;
+    border: 0px solid black;
+    border-radius: 31px;
+    position: fixed;
+    width: 50px;
+    height: auto;
+    bottom: 3%;
+    right: 1%;
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* queries */ 
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .description-wrapper .h4-cont {
+        place-content: center;
+    }
+    .h4-cont h4{
+        margin-left: 3rem;
+    }
+    .h4-cont::after{
+        transform: translate(115px,60px) rotate(-90deg);
+    }
+    .what-is-league h1{
+        font-size: 2.5em;
+    }
+    .champs{
+        display: flex;
+        flex-direction: row ;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .champ-card {
+        width: 18vw;
+        margin: 1rem;
+    }
+    .champ-name{
+        transform: translateX(0px);
+        
+    }
+    .champ-name h3{
+        text-transform: capitalize; 
+        font-size: 23px;
+    }
+    .aurelion{
+        font-size: 80%;
+        white-space: nowrap;
+        
+    }
+    .champ-infos{
+        margin-bottom: 0.3rem;
+    }
+    .role{
+        width:42%;
+        margin-right: 0.5rem;  
+    }
+    .riot-points{
+        gap: 0.2rem;
+    }
+    .riot-points img{
+        width: 18%;
+    }
+    .riot-points figcaption{
+        font-size: large;
+    }
+
+ }
+@media all and (min-width: 480px) and (max-width: 768px) {
+    .login-container{
+        gap:1vh;
+    }
+    .login-container button{
+        min-width: 14vw;
+        font-size:10px;
+        margin: 0.5rem;
+        padding: 0;
+    }
+    .description-wrapper{
+        grid-template-columns: 15% 1fr;
+        min-height: 250px;
+    }
+    .description-wrapper .what-is-league {
+        background-color: transparent;
+        grid-column: 2/3;
+        align-self: center;
+    }
+    :is(.description-wrapper:hover) .what-is-league{
+        animation: bigger 0.7s ease forwards ;
+    }
+    .what-is-league h1{
+        text-align: center;
+        font-size: 7vw;
+    }
+    .what-is-league p{
+        font-size: 15px;
+        width: 32em;
+    }
+    .description-wrapper .h4-cont {       
+        place-content:center ;
+        white-space: nowrap;
+    }
+    .h4-cont{
+        transform: translateY(15px)
+    }
+    .h4-cont h4{
+        font-size: 10px;
+        margin-left: 0rem; 
+        
+    }
+    .h4-cont::after{
+        width: 15px;
+        transform: translate(47px,-75px) rotate(-90deg);
+        
+    }
+    .h4-cont::after{
+        content: "";
+    }
+    @keyframes bigger {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1.05);
+        }
+    }
+    .how-to-play{
+        min-height: 500px;
+
+        background-size: cover; /* Resize the background image to cover the entire container */
+        background-position-x: 50%;
+        background-repeat: no-repeat; 
+    }
+    .goal{
+        width: 100vw;
+        grid-template-columns:10% 1fr ;
+        gap:2vw;
+    }
+    .goal .p {
+        width: 350px;
+
+    }
+    .p h1{
+        margin-bottom:0.5rem;
+        font-size: 25px;
+    }
+    .p p{
+        font-size:13px;
+    }
+    .goal .h {
+        place-content:baseline;
+        justify-self: start;
+        transform: rotate(-90deg) translate(-5px,55px);
+    }
+    .h h4{
+        font-size: small;
+    }
+    .goal .h2 {
+        place-content:baseline;
+        justify-self:baseline;
+        transform: rotate(-90deg) translate(-5px,55px);
+    }
+    .h2::after{
+        background-color: whitesmoke;
+        width: 12px;
+        height: 2px;
+        content: "";
+        transform: translate(70px,-8px);
+    }
+    .h2 h4{
+        font-size: small;
+    }
+    .champs{
+        display: flex;
+        flex-direction: row ;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .champ-card {
+        width: 25vw;
+        margin: 1rem;
+    }
+    .champ-name{
+        transform: translateX(0px);
+        
+    }
+    .champ-name h3{
+        text-transform: capitalize; 
+        font-size: 23px;
+    }
+    .aurelion{
+        font-size: 80%;
+        white-space: nowrap;
+        
+    }
+    .champ-infos{
+        margin-bottom: 0.3rem;
+    }
+    .role{
+        width:42%;
+        margin-right: 0.5rem;  
+    }
+    .riot-points{
+        gap: 0.2rem;
+    }
+    .riot-points img{
+        width: 18%;
+    }
+    .riot-points figcaption{
+        font-size: large;
+    }
+    .footer-container{
+        flex-direction: column;
+        padding-left: 1rem;
+    }
+    .riot-infos {
+        width: 100%;
+    }
+    .riot-descript {
+        width: 92%;
+    }
+    .foot-bar {
+        width: 100%;
+    }
+    .foot-ul {
+        list-style-type: none;
+        display: flex;
+        font-size: initial;
+        gap: 1.5rem;
+    }
+    .foot-ul li {
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+    }
+    .copyright {
+        font-size: x-small;
+        width: 80%;
+    }
+    .back-to-top img {
+        width: 34px;
+      }
+ }
+
+@media all and (max-width: 480px) { 
+    .login-container{
+        gap:1vh;
+    }
+    .login-container button{
+        min-width: 12vw;
+        font-size:10px;
+        padding: 0;
+    }
+    .description-wrapper{
+        grid-template-columns: 10% 1fr;
+        min-height: 250px;
+    }
+    .description-wrapper .what-is-league {
+        background-color: transparent;
+        grid-column: 2/3;
+        align-self: center;
+    }
+    :is(.description-wrapper:hover) .what-is-league{
+        animation: bigger 0.7s ease forwards ;
+    }
+    .what-is-league h1{
+        text-align: start;
+        font-size: 7.5vw;
+    }
+    .what-is-league p{
+        font-size: x-small;
+        width: 30em;
+    }
+    .description-wrapper .h4-cont {       
+        place-content:center ;
+        white-space: nowrap;
+    }
+    .h4-cont h4{
+        font-size: 7.5px;
+        margin-left: 0rem; 
+    }
+    .h4-cont::after{
+        width: 15px;
+        transform: translate(17px,-62px) rotate(-90deg);
+        
+    }
+    .h4-cont::after{
+        content: "";
+    }
+    @keyframes bigger {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1.05);
+        }
+    }
+    .how-to-play{
+        min-height: 500px;
+
+        background-size: cover; /* Resize the background image to cover the entire container */
+        background-position-x: 50%;
+        background-repeat: no-repeat; 
+    }
+    .goal{
+        width: 100vw;
+        grid-template-columns:10% 1fr ;
+        gap:2vw;
+    }
+    .goal .p {
+        width: 350px;
+
+    }
+    .p h1{
+        margin-bottom:0.5rem;
+        font-size: 25px;
+    }
+    .p p{
+        font-size:13px;
+    }
+    .goal .h {
+        place-content:baseline;
+        justify-self: start;
+        transform: rotate(-90deg) translate(-5px,35px);
+    }
+    .h h4{
+        font-size: small;
+    }
+    .goal .h2 {
+        place-content:baseline;
+        justify-self:baseline;
+        transform: rotate(-90deg) translate(-5px,35px);
+    }
+    .h2::after{
+        background-color: whitesmoke;
+        width: 12px;
+        height: 2px;
+        content: "";
+        transform: translate(70px,-8px);
+    }
+    .h2 h4{
+        font-size: small;
+    }
+    .champs{
+        display: flex;
+        flex-direction: row ;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .champ-card {
+        width: 21vw;
+        margin: 1rem;
+    }
+    .champ-name{
+        transform: translateX(0px);
+        
+    }
+    .champ-name h3{
+        text-transform: capitalize; 
+        font-size: 17px;
+    }
+    .aurelion{
+        font-size: 80%;
+        white-space: nowrap;
+        
+    }
+    .champ-infos{
+        margin-bottom: 0.3rem;
+    }
+    .role{
+        width:86%;
+        margin-right: 0.1rem;  
+    }
+    .riot-points{
+        gap: 0.2rem;
+    }
+    .riot-points img{
+        width: 18%;
+    }
+    .riot-points figcaption{
+        font-size: small;
+    }
+    /*--------foooter-----------------*/
+
+.footer-container{
+    flex-direction: column;
+    padding-left: 1rem;
+}
+.riot-infos {
+    width: 100%;
+}
+.riot-descript {
+    width: 92%;
+}
+.foot-bar {
+    width: 100%;
+}
+.foot-ul {
+    list-style-type: none;
+    display: flex;
+    font-size: initial;
+    gap: 1.5rem;
+}
+.foot-ul li {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+.copyright {
+    font-size: x-small;
+    width: 80%;
+}
+.back-to-top img {
+    width: 34px;
+  }
+}

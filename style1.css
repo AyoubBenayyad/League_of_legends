@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-size:x-large;
+    font-family: sans-serif;  
+    background-color:hsl(225, 6%, 13%);
+    min-height: 600px;
+    color: whitesmoke;
+    background-image: url("img/artur-sadlos-leg-more-sh280-background-as-v005.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+img{
+    display: block;
+}
+h1{
+    margin: 2rem 0 1rem 2rem;  
+    text-transform: capitalize;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    text-align: center;
+    transform: translateX(-15px);   
+    font-weight: normal;
+}
+form{
+    padding: 0rem 2rem 0rem 2rem;
+    width: 500px;
+    margin: auto;
+}
+fieldset{
+    padding: 2rem;
+    background-color: rgb(23, 22, 22);
+}
+fieldset legend{
+    font-size:19px;
+    text-shadow: 4px 4px 4px rgb(0, 0, 0);
+}
+.text-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+textarea{
+    background: none;
+    color: whitesmoke;
+    padding: 0.5rem 1rem;
+}
+input{
+    width: 100% ;
+    background: none;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+    padding: 6px 20px;
+    color: whitesmoke;
+    margin: 10px;
+    transform: translateX(-10px);
+    font-size: 13px;
+}
+.button{
+    background-color: hsl(38, 36%, 56%);
+    color: black;
+    border: 1px solid black;    
+}
+label{
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
